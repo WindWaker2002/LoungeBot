@@ -1,27 +1,30 @@
- "name": "discord.js-heroku",
-  "version": "1.0.0",
-  "description": "An in-depth guide on deploying your Discord.js bot on Heroku",
-  "main": "index.js",
-  "engines": {
-      "node": "8.x",
-      "npm": "*"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
-  },
+{
+  "name": "Discord-Bot",
+  "version": "0.0.1",
+  "description": "A bot for Discord",
+  "readme": "README.md",
+  "author": "Xeta <zoro.fmt@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/synicalsyntax/discord.js-heroku.git"
+    "url": "https://github.com/Xety/Discord-Bot"
+  },
+  "bugs": {
+    "url": "https://github.com/Xety/Discord-Bot/issues"
   },
   "keywords": [
-    "heroku",
-    "discord.js"
+    "discord",
+    "bot",
+    "discordapp"
   ],
-  "author": "synicalsyntax",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/synicalsyntax/discord.js-heroku/issues"
+  "main": "bot.js",
+  "directories": {
+    "lib": "./lib"
   },
-  "homepage": "https://github.com/synicalsyntax/discord.js-heroku#readme"
+  "dependencies": {
+    "discord.js": "*",
+    "youtube-node": "1.2.x",
+    "query-string": "3.*",
+    "request": ">=2.58.0"
+  }
 }

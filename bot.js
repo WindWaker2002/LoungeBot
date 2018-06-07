@@ -52,6 +52,7 @@ client.on("message", async message => {
     if (count === 8) message.channel.send("8 players are ready! GLHF");
     else message.channel.send(count + "/8");
   }
+    if (command === "!tag") msg.channel.send("@everyone");
   }
  
   if (command === "!coin") {

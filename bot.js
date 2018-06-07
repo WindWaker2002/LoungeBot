@@ -37,7 +37,7 @@ function shuffle(array) {
   return array;
 }
 
-client.login("NDUzNTc0OTAzNjEwNzM2NjQw.Dfnncg.yHX4HgfBZ2SxE_gOvZ4LtpidOlc");
+client.login("NDUzNTc0OTAzNjEwNzM2NjQw.DftR3Q.sDSB0VWkSGsH9pjbTY5OMrylnG4");
 
 client.on("ready", () => {
   console.log("Bot ready!")

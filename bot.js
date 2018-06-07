@@ -38,11 +38,6 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
- if (command === "!can") {
-    adduser(message.author.id);
-    if (count === 8) message.channel.send("8 players are ready! GLHF");
-    else message.channel.send(count + "/8");
-  }
 
   if(message.author.bot) return;
   
@@ -52,8 +47,13 @@ client.on("message", async message => {
     command = command.toLowerCase(); // make everything lower case so commands still work if typed in caps
   } else {
       command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
+    if (command === "!can") {
+    adduser(message.author.id);
+    if (count === 8) message.channel.send("8 players are ready! GLHF");
+    else message.channel.send(count + "/8");
   }
-
+  }
+ 
   if (command === "!coin") {
     var i = Math.floor(Math.random() * Math.floor(2)); // put number 0 or 1 in the variable "i"
     if (i) message.reply("LoungeBot tossed a coin and got Heads!"); // if (1) = true (heads), if 0  = false (tails). 

@@ -54,7 +54,7 @@ client.on("message", async message => {
   if (command === "can") {
     adduser(message.author.id);
     if (Object.keys(users).length === 8) message.channel.send("8 players are ready! GLHF");
-    else message.channel.send(count + "/8");
+    else message.channel.send(Object.keys(users).length + "/8");
   }
  
   if (command === "!coin") {

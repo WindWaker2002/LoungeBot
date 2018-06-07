@@ -27,4 +27,6 @@
     "query-string": "3.*",
     "request": ">=2.58.0"
   }
+  npm install uuid --save
+  
 }

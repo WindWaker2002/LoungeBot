@@ -72,5 +72,5 @@ client.on("message", async message => {
     adduser(message.author.id);
     if (count === 8) message.channel.send("8 players are ready! GLHF");
     else message.channel.send(count + "/8");
-  }
+   }
 });

@@ -5,11 +5,14 @@ const UUID = require("uuid");
 const users = {};
 function removeuser(id){
   delete users[id];
- 
 }
 
 function adduser(user){
-  
+  id = new UUID();
+  users[id] = user;
+  var hour = new Date();
+  hour.setHours(hour.getHours() + 1);
+  setTimeout(removeuser, hour, id);
 }
 function getAllUsers(){
     return Object.keys(users).map(function(id){ return users[id]});

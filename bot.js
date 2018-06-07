@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const UUID = require("uuid");
 
 const users = {};
+
 function removeuser(id){
   delete users[id];
 }
@@ -14,15 +15,11 @@ function adduser(user){
   hour.setHours(hour.getHours() + 1);
   setTimeout(removeuser, hour, id);
 }
+
 function getAllUsers(){
-    return Object.keys(users).map(function(id){ return users[id]});
-  id = new UUID();
-  users[id] = user;
-  var hour = new Date();
-  hour.setHours(hour.getHours() + 1);
-  setTimeout(removeuser, hour, id);
- 
+  return Object.keys(users).map(function(id){ return users[id]});
 }
+
 function shuffle(array) {
   var currentIndex = array.length;
   var temporaryValue;
@@ -51,9 +48,10 @@ client.on("message", async message => {
     var command = message.content.slice(0, message.content.indexOf(' ')); // this makes "command" the first word in the message
     var args = message.content.slice(message.content.indexOf(' ') + 1, message.content.length).split(' '); // this will make every word (or tagged user) be stored in an array called args
     command = command.toLowerCase(); // make everything lower case so commands still work if typed in caps
-  } else {
-      command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
- if (command === "can") {
+  } 
+  else command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
+  
+  if (command === "can") {
     adduser(message.author.id);
     if (Object.keys(users).length === 8) message.channel.send("8 players are ready! GLHF");
     else message.channel.send(count + "/8");
@@ -65,15 +63,14 @@ client.on("message", async message => {
     else message.reply("LoungeBot tossed a coin and got Tails!");
   }
   
-if (command === "!randomize") {
-    //make sure we have 8 players
-    if (args.length < 8) {
-      message.reply("8 players needed!")
-      return;
+  if (command === "!randomize") {
+    if (command === "!randomize") {
+      var players = shuffle(getAllUsers());
+      if (players.length < 8) {
+        message.reply("8 players needed!");
+        return;
+      }
+      message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + "and " + players[7]);
     }
-    //args is an array of all the users that were tagged, we need to randomise the order and store the new array in "players"
-    var players = shuffle(args);
-    //now we need to make the teams!
-    message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + " and " + players[7]);
-    }
+  }
 });

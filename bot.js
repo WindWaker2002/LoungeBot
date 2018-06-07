@@ -9,6 +9,9 @@ function removeuser(id){
 }
 
 function adduser(user){
+  function getAllUsers(){
+  return Object.keys(users).map(function(id){ return users[id]});
+}
   id = new UUID();
   users[id] = user;
   var hour = new Date();
@@ -61,15 +64,12 @@ client.on("message", async message => {
     else message.reply("LoungeBot tossed a coin and got Tails!");
   }
   
-  if (command === "!randomize") {
-    //make sure we have 8 players
-    if (args.length < 8) {
-      message.reply("8 players needed!")
-      return;
-    }
-    //args is an array of all the users that were tagged, we need to randomise the order and store the new array in "players"
-    var players = shuffle(args);
-    //now we need to make the teams!
-    message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + " and " + players[7]);
+ if (command === "!randomize") {
+  var players = shuffle(getAllUsers());
+  if (players.length < 8) {
+    message.reply("8 players needed!");
+    return;
   }
+  message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + "and " + players[7]);
+}
 });

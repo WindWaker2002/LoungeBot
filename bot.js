@@ -1,23 +1,24 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const UUID = require("uuid");
-var count = 0;
+
 const users = {};
 function removeuser(id){
   delete users[id];
-  count--;
+ 
 }
 
 function adduser(user){
-  function getAllUsers(){
-    return Object.keys(users).map(function(id){ return users[id]});
+  
 }
+function getAllUsers(){
+    return Object.keys(users).map(function(id){ return users[id]});
   id = new UUID();
   users[id] = user;
   var hour = new Date();
   hour.setHours(hour.getHours() + 1);
   setTimeout(removeuser, hour, id);
-  count++;
+ 
 }
 function shuffle(array) {
   var currentIndex = array.length;
@@ -49,9 +50,9 @@ client.on("message", async message => {
     command = command.toLowerCase(); // make everything lower case so commands still work if typed in caps
   } else {
       command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
-    if (command === "can") {
+   if (command === "!can") {
     adduser(message.author.id);
-    if (count === 8) message.channel.send("8 players are ready! GLHF");
+    if (Object.keys(users).length === 8) message.channel.send("8 players are ready! GLHF");
     else message.channel.send(count + "/8");
   }
     if (command === "5/8") msg.channel.send(" +3 @here");

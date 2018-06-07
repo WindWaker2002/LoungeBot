@@ -7,7 +7,7 @@ function removeuser(id){
 }
 
 function adduser(user){
-  function getAllUsers(){
+function getAllUsers(){
   return Object.keys(users).map(function(id){ return users[id]});
 }
   id = new UUID();

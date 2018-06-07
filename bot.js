@@ -1,5 +1,19 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const UUID = require("uuid");
+const users = {};
+function removeuser(id){
+  delete users[id];
+}
+
+function adduser(user){
+  id = new UUID();
+  users[id] = user;
+  var hour = new Date();
+  hour.setHours(hour.getHours() + 1);
+  setTimeout(removeuser, hour, id);
+}
+
 
 function shuffle(array) {
   var currentIndex = array.length;
@@ -49,7 +63,11 @@ client.on("message", async message => {
     var players = shuffle(args);
     //now we need to make the teams!
     message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + " and " + players[7]);
+   }
+   
+    if (command === "can") {
+    adduser(message.author.id);
+    if (count === 8) message.channel.send("8 players are ready! GLHF");
+    else message.channel.send(count + "/8");
   }
-     
-  if (command === "!tag") msg.channel.send("@everyone");
 });

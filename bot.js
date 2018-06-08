@@ -2,22 +2,18 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const UUID = require("uuid");
 
-const users = {};
+var players = [];
+var teamcount = 0;
 
-function removeuser(id){
-  delete users[id];
+function removeuser(index){
+  players.splice(index, 1);
+  teamcount -= 1;
 }
 
 function adduser(user){
-  id = new UUID();
-  users[id] = user;
-  var hour = new Date();
-  hour.setHours(hour.getHours() + 1);
-  setTimeout(removeuser, hour, id);
-}
-
-function getAllUsers(){
-  return Object.keys(users).map(function(id){ return users[id]});
+  players.push(user);
+  setTimeout(removeuser, 3600000  , teamcount);
+  teamcount += 1;
 }
 
 function shuffle(array) {
@@ -51,10 +47,10 @@ client.on("message", async message => {
   } 
   else command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
   
-  if (command === "!can") {
+  if (command === "can") {
     adduser(message.author.id);
-    if (Object.keys(users).length === 8) message.channel.send("8 players are ready! GLHF");
-    else message.channel.send(Object.keys(users).length + "/8");
+    if (players.length === 8) message.channel.send("8 players are ready! GLHF");
+    else message.channel.send(players.length + "/8");
   }
  
   if (command === "!coin") {
@@ -64,13 +60,10 @@ client.on("message", async message => {
   }
   
   if (command === "!randomize") {
-    if (command === "!randomize") {
-      var players = shuffle(getAllUsers());
-      if (players.length < 8) {
-        message.reply("8 players needed!");
-        return;
-      }
-      message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + "and " + players[7]);
+   if (players.length < 8) {
+     message.reply("8 players needed!");
+     return;
     }
+    message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeamD: " + players[6] + "and " + players[7]);
   }
 });

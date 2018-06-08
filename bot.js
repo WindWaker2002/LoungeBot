@@ -51,8 +51,8 @@ client.on("message", async message => {
   if (players.indexOf(message.author.id) > -1) {
     players.splice(players.indexOf(message.author.id), 1);  
   }
-}
- if (command === "can" || command === "could") {
+    
+ if (command === "can" || command === "could" || command === "cané" || command === "cane") {
     adduser(message.author.id);
     if (players.length === 8) {
       message.channel.send("8 players are ready! GLHF");
@@ -67,6 +67,8 @@ client.on("message", async message => {
     message.channel.send("<@" + players[0] + "> " + "<@" + players[1] + "> " + "<@" + players[2] + "> " + "<@" + players[3] + "> " + "<@" + players[4] + "> " + "<@" + players[5] + "> " + "<@" + players[6] + "> " + "<@" + players[6] + "> " + "<@" + players[7] + "> ");
     }
     else message.channel.send(players.length + "/8");
+   players = [];
+    teamcount = 0;
   }
    
  

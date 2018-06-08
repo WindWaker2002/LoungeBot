@@ -67,8 +67,7 @@ client.on("message", async message => {
     message.channel.send("<@" + players[0] + "> " + "<@" + players[1] + "> " + "<@" + players[2] + "> " + "<@" + players[3] + "> " + "<@" + players[4] + "> " + "<@" + players[5] + "> " + "<@" + players[6] + "> " + "<@" + players[6] + "> " + "<@" + players[7] + "> ");
     }
     else message.channel.send(players.length + "/8");
-   players = [];
-    teamcount = 0;
+  
   }
    
  

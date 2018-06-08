@@ -47,7 +47,7 @@ client.on("message", async message => {
   } 
   else command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
   
-  if (command === "can") {
+  if (command === "!can") {
     adduser(message.author.id);
     if (players.length === 8) message.channel.send("8 players are ready! GLHF");
     else message.channel.send(players.length + "/8");
@@ -65,7 +65,7 @@ client.on("message", async message => {
      return;
     }
     else {
-    message.reply("\nTeam A: " + "@<" + players[0] + ">" + " and " + "@<" + players[1] + ">" + "\nTeam B: " + "@<" + players[2] + ">" + " and " + "@<" + players[3] + ">" + "\nTeam C: " + "@<" + players[4] + ">" + " and " + "@<" + players[5] + ">" +"\nTeamD: " + "@<" + players[6] + ">" + "and " + "@<" + players[7] + ">");
+    message.reply("\nTeam A: " + "<@" + players[0] + ">" + " and " + "<@" + players[1] + ">" + "\nTeam B: " + "<@" + players[2] + ">" + " and " + "<@" + players[3] + ">" + "\nTeam C: " + "<@" + players[4] + ">" + " and " + "<@" + players[5] + ">" +"\nTeamD: " + "<@" + players[6] + ">" + "and " + "<@" + players[7] + ">");
     players = [];
     teamcount = 0;
     }

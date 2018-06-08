@@ -48,7 +48,7 @@ client.on("message", async message => {
   else command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
  
     
- if (command === "can") {
+ if (command === "can" || command === "could" || command === "cané" || command === "cane") {
     adduser(message.author.id);
     if (players.length === 8) {
       message.channel.send("8 players are ready! GLHF");

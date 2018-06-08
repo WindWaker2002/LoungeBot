@@ -30,7 +30,7 @@ function shuffle(array) {
   return array;
 }
 
-client.login("NDUzNTc0OTAzNjEwNzM2NjQw.DfuAyw.e-WOdQAscPB_kXCg3618UueO4pQ");
+client.login("NDUzNTc0OTAzNjEwNzM2NjQw.DftR3Q.sDSB0VWkSGsH9pjbTY5OMrylnG4");
 
 client.on("ready", () => {
   console.log("Bot ready!")

@@ -52,7 +52,7 @@ client.on("message", async message => {
     players.splice(players.indexOf(message.author.id), 1);  
   }
     
- if (command === "can" || command === "could" || command === "cané" || command === "cane") {
+ if (command === "can" || command === "could") {
     adduser(message.author.id);
     if (players.length === 8) {
       message.channel.send("8 players are ready! GLHF");

@@ -47,23 +47,23 @@ client.on("message", async message => {
   } 
   else command = message.content.toLowerCase(); // if there is only one word, put it in "command" and turn it into all lower-case
   
- if (command === "!can") {
+ if (command === "can") {
     adduser(message.author.id);
     if (players.length === 8) {
       message.channel.send("8 players are ready! GLHF");
     /*access an item in an array by using its index. indexes start at zero
     so the first item in players is players[0]
     to put 2 parts of a string together use plus signs
-    message.channel.send("<@" + players[0] + ">"); ("<@" + players[1] + ">")("<@" + players[2] + ">")("<@" + players[3] + ">") ("<@" + players[4] + ">")("<@" + players[5] + ">")("<@" + players[6] + ">")("<@" + players[7] + ">")
+    message.channel.send("<@" + players[0] + ">");
     this will tag the first user that said !can
     fill in this line so you tag every user.
     the first user is players[0], and the last is players[7]
-    /
-    message.channel.send(/("<@" + players[0] + ">") ----->>>/"       "/ (/"<@" + players[1] + ">") ----->>>/"       "/* (/"<@" + players[2] + ">") ----->>>/"       "/* (/"<@" + players[3] + ">") ----->>>/"       "/* (/"<@" + players[4] + ">") ----->>>/"       "/* (/"<@" + players[5] + ">") ----->>>/"       "/* (/"<@" + players[6] + ">") ----->>>/"       "/* (/*"<@" + players[7] + ">")
+    */
+    message.channel.send("<@" + players[0] + "> " + "<@" + players[1] + "> " + "<@" + players[2] + "> " + "<@" + players[3] + "> " + "<@" + players[4] + "> " + "<@" + players[5] + "> " + "<@" + players[6] + "> " + "<@" + players[6] + "> " + "<@" + players[7] + "> ");
     }
     else message.channel.send(players.length + "/8");
   }
-how can i write like you
+   
  
   if (command === "!coin") {
     var i = Math.floor(Math.random() * Math.floor(2)); // put number 0 or 1 in the variable "i"

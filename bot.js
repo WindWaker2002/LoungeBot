@@ -72,10 +72,6 @@ client.on("message", async message => {
     if (i) message.reply("LoungeBot tossed a coin and got Heads!"); // if (1) = true (heads), if 0  = false (tails). 
     else message.reply("LoungeBot tossed a coin and got Tails!");
   }
-   if (command === "can't") {
-  if (players.indexOf(message.author.id) > -1) {
-    players.splice(players.indexOf(message.author.id), 1);  
-  }
   
   if (command === "!randomize") {
    if (players.length < 8) {

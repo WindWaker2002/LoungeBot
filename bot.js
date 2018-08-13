@@ -15,7 +15,7 @@ function shuffle(array) {
   return array;
 }
 
-client.login("RfsQLJVmojkotaqqGKszVpFcL2m2bOdu");
+client.login("NDUzNTc0OTAzNjEwNzM2NjQw");
 
 client.on("ready", () => {
   console.log("Bot ready!")
@@ -48,6 +48,6 @@ client.on("message", async message => {
     //args is an array of all the users that were tagged, we need to randomise the order and store the new array in "players"
     var players = shuffle(args);
     //now we need to make the teams!
-    message.reply("\nTeam 1: " + players[0] + " and " + players[1] + "\nTeam 2: " + players[2] + " and " + players[3] + "\nTeam 3: " + players[4] + " and " + players[5] + "\nTeam4: " + players[6] + " and " + players[7]);
+    message.reply("\nTeam A: " + players[0] + " and " + players[1] + "\nTeam B: " + players[2] + " and " + players[3] + "\nTeam C: " + players[4] + " and " + players[5] + "\nTeam D: " + players[6] + " and " + players[7]);
   }
 });
